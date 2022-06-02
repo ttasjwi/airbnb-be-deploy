@@ -2,6 +2,7 @@ package codesquad.airbnb.accommodation.web.dto;
 
 import lombok.Getter;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -24,6 +25,7 @@ public class AccommodationPricesResponse {
         List<Integer> randomPrices = random.ints(1, SAMPLE_MAX_PRICE_RANGE + 1)
                 .limit(SAMPLE_PRICES_SIZE)
                 .boxed()
+                .sorted()
                 .collect(Collectors.toList());
         return new AccommodationPricesResponse(randomPrices);
     }
